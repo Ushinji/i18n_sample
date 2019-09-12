@@ -10,7 +10,7 @@ mysql_engine = create_engine(
 
 
 # Create Database for development if it did not exist
-database_name_development = 'celery_sample_development'
+database_name_development = 'i18n_sample'
 existing_databases = mysql_engine.execute("SHOW DATABASES;")
 if database_name_development not in [d[0] for d in existing_databases]:
     mysql_engine.execute(
@@ -20,7 +20,7 @@ if database_name_development not in [d[0] for d in existing_databases]:
 
 
 # Create Database for test if it did not exist
-database_name_test = 'celery_sample_test'
+database_name_test = 'i18n_sample_test'
 existing_databases = mysql_engine.execute("SHOW DATABASES;")
 if database_name_test not in [d[0] for d in existing_databases]:
     mysql_engine.execute(
