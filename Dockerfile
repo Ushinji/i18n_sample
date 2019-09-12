@@ -6,7 +6,7 @@ ENV APP_ROOT=/app/
 RUN apt-get update \
   && apt-get install -y --no-install-recommends \
       build-essential \
-      mysql-client \
+      default-mysql-client \
   && rm -rf /var/lib/apt/lists/*
 
 RUN pip install -U pip \
