@@ -8,45 +8,23 @@ services:
       DATABASE_USER: root
       DATABASE_PASSWORD: i18n_sample
       DATABASE_HOST: db
-      PIPENV_VENV_IN_PROJECT: 'true'
+      PIPENV_VENV_IN_PROJECT: "true"
     ports:
       - "5000:5000"
     volumes:
       - "./:/app"
     depends_on:
       - db
-      - redis
-      - worker
-  
-  worker:
-    build: "./"
-    command: "pipenv run start_worker"
-    environment:
-      RUN_MODE: development
-      DATABASE_USER: root
-      DATABASE_PASSWORD: i18n_sample
-      DATABASE_HOST: db
-      PIPENV_VENV_IN_PROJECT: 'true'
-    volumes:
-      - "./:/app"
-    depends_on:
-      - db
-      - redis
 
   db:
     image: mysql:5.7
     environment:
-      MYSQL_ROOT_PASSWORD: celerysample
+      MYSQL_ROOT_PASSWORD: i18n_sample
     volumes:
       - "db-data:/var/lib/mysql"
       - "./template/mysql/conf.d:/etc/mysql/conf.d"
     ports:
-      - '3316:3306'
-
-  redis:
-    image: redis:5.0.4-alpine
-    ports:
-      - 6379:6379
+      - "3316:3306"
 
 volumes:
   db-data:
