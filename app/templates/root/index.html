@@ -1,6 +1,7 @@
 {% extends "layout.html" %}
 {% block body %}
 <div>
-  <h1>Hello Flask</h1> 
+  <h1>{{ i18n.t('RootPageTitle') }}</h1>
+  <p>{{ i18n.t('HelloWorld') }}</p>
 </div>
 {% endblock %}
